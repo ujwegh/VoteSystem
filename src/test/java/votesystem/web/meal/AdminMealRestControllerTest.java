@@ -1,6 +1,5 @@
 package votesystem.web.meal;
 
-import com.sun.org.apache.regexp.internal.RE;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -14,7 +13,6 @@ import votesystem.web.json.JsonUtil;
 import java.time.LocalDate;
 import java.util.Arrays;
 
-import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;

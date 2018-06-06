@@ -89,13 +89,13 @@ public class RestaurantServiceImplTest extends AbstractServiceTest {
 
     @Test
     public void voteForIt() throws Exception {
-        Restaurant restaurant = new Restaurant(rest1);
+        Restaurant restaurant = new Restaurant(rest2);
         restaurant.setVoteCount(1);
         try {
-            service.voteForIt(RESTAURANT_ID, "increment");
+            service.voteForIt(RESTAURANT_ID +1, "increment");
         } catch (TooLateForVoteException e) {
             restaurant.setVoteCount(0);
         }
-        assertMatch(service.get(RESTAURANT_ID), restaurant);
+        assertMatch(service.get(RESTAURANT_ID + 1), restaurant);
     }
 }
