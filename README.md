@@ -1,6 +1,7 @@
 ## Implementation of REST API using Maven/Spring/Security/JPA(Hibernate)/REST(Jackson)
-Stack technology Spring MVC, Spring Data-Jpa, Spring Security, Hibernate ORM, Logback, 
-Json Jackson, Apache Tomcat, Ehcache, JUnit, Hamcrest, 
+Stack technology Spring MVC, Spring Data-Jpa, Spring Security, Hibernate, Logback, 
+Json Jackson, Apache Tomcat, Ehcache, JUnit, Hamcrest, slf4j
+
 The task is:
 
 #### Build a voting system for deciding where to have lunch.
