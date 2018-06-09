@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import votesystem.model.Meal;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.time.LocalDate;
 import java.util.List;
@@ -42,7 +43,8 @@ public class AdminMealRestController extends AbstractMealRestController{
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Meal> createWithLocation(@RequestBody Meal meal, @PathVariable("restaurantId") int restaurantId) {
+    public ResponseEntity<Meal> createWithLocation(@Valid @RequestBody Meal meal, @PathVariable("restaurantId") int
+            restaurantId) {
         Meal created = super.create(meal, restaurantId);
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path(ADMIN_RESTAURANT_REST_URL + "/{id}")

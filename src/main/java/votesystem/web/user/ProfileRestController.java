@@ -8,6 +8,8 @@ import votesystem.AuthorizedUser;
 import votesystem.model.User;
 import votesystem.to.UserTo;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(ProfileRestController.REST_URL)
 public class ProfileRestController extends AbstractUserController {
@@ -24,13 +26,13 @@ public class ProfileRestController extends AbstractUserController {
         super.delete(AuthorizedUser.id());
     }
 
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void update(@RequestBody User user, @PathVariable("id") int id) {
-        super.update(user, AuthorizedUser.id());
-    }
-
 //    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-//    public void update(@RequestBody UserTo userTo) {
-//        super.update(userTo, AuthorizedUser.id());
+//    public void update(@Valid @RequestBody User user, @PathVariable("id") int id) {
+//        super.update(user, AuthorizedUser.id());
 //    }
+
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void update(@Valid @RequestBody UserTo userTo) {
+        super.update(userTo, AuthorizedUser.id());
+    }
 }
