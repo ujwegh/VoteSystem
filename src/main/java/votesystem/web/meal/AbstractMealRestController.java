@@ -9,7 +9,6 @@ import votesystem.service.MealService;
 import java.time.LocalDate;
 import java.util.List;
 
-import static votesystem.util.ValidationUtil.assureIdConsistent;
 import static votesystem.util.ValidationUtil.checkNew;
 
 public class AbstractMealRestController {

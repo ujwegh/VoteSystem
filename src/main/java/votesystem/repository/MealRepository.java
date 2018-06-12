@@ -15,7 +15,7 @@ public interface MealRepository {
     // null if meal do not belong to restaurantId
     Meal get(int id, int restaurantId);
 
-    // ORDERED dateTime desc
+    // ORDERED price asc
     List<Meal> getAll(int restaurantId);
 
     List<Meal> getAllByDate(int restaurantId, LocalDate chosenDate);

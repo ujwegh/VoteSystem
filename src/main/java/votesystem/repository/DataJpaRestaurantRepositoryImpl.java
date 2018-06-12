@@ -11,8 +11,12 @@ import java.util.List;
 public class DataJpaRestaurantRepositoryImpl implements RestaurantRepository{
     private static final Sort SORT_NAME = new Sort(Sort.Direction.ASC, "name","voteCount");
 
+    private final CrudRestaurantRepository crudRestaurantRepository;
+
     @Autowired
-    private CrudRestaurantRepository crudRestaurantRepository;
+    public DataJpaRestaurantRepositoryImpl(CrudRestaurantRepository crudRestaurantRepository) {
+        this.crudRestaurantRepository = crudRestaurantRepository;
+    }
 
     @Override
     public Restaurant save(Restaurant restaurant) {

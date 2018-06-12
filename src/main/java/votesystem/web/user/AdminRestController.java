@@ -1,7 +1,5 @@
 package votesystem.web.user;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -11,13 +9,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import votesystem.model.User;
 import votesystem.service.UserService;
 
-
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
-
-import static votesystem.util.ValidationUtil.assureIdConsistent;
-import static votesystem.util.ValidationUtil.checkNew;
 
 @RestController
 @RequestMapping(AdminRestController.REST_URL)

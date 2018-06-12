@@ -10,11 +10,15 @@ import java.util.List;
 @Repository
 public class DataJpaMealRepositoryImpl implements MealRepository {
 
-    @Autowired
-    private CrudMealRepository crudMealRepository;
+    private final CrudMealRepository crudMealRepository;
+
+    private final CrudRestaurantRepository crudRestaurantRepository;
 
     @Autowired
-    private CrudRestaurantRepository crudRestaurantRepository;
+    public DataJpaMealRepositoryImpl(CrudMealRepository crudMealRepository, CrudRestaurantRepository crudRestaurantRepository) {
+        this.crudMealRepository = crudMealRepository;
+        this.crudRestaurantRepository = crudRestaurantRepository;
+    }
 
     @Override
     public Meal save(Meal meal, int restaurantId) {

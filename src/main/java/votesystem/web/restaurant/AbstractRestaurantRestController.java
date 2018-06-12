@@ -3,13 +3,11 @@ package votesystem.web.restaurant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import votesystem.AuthorizedUser;
 import votesystem.model.Restaurant;
 import votesystem.model.User;
 import votesystem.service.RestaurantService;
 import votesystem.service.UserService;
-import votesystem.util.exception.AlreadyVotedException;
 
 import java.util.List;
 import java.util.Objects;
