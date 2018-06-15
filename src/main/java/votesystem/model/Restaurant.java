@@ -13,6 +13,7 @@ import java.util.List;
 @Table(name = "restaurants", uniqueConstraints = {@UniqueConstraint(columnNames = "name", name = "restaurants_unique_name_idx")})
 public class Restaurant extends AbstractNamedEntity {
 
+    @Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "restaurant")
     @CollectionTable(name = "meals", joinColumns = @JoinColumn(name = "restaurant_id"))
     @OrderBy("price ASC")
