@@ -4,13 +4,11 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.web.util.NestedServletException;
 import votesystem.TestUtil;
 import votesystem.model.Role;
 import votesystem.model.User;
 import votesystem.service.UserService;
 import votesystem.util.exception.ErrorType;
-import votesystem.util.exception.NotFoundException;
 import votesystem.web.AbstractControllerTest;
 import votesystem.web.json.JsonUtil;
 

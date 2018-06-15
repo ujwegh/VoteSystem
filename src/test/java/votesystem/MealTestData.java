@@ -2,7 +2,6 @@ package votesystem;
 
 import votesystem.model.AbstractBaseEntity;
 import votesystem.model.Meal;
-import votesystem.model.Restaurant;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -11,7 +10,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static votesystem.RestaurantTestData.RESTAURANT_ID;
 import static votesystem.model.AbstractBaseEntity.START_SEQ;
 
 public class MealTestData {

@@ -7,7 +7,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static votesystem.TestUtil.userAuth;
 import static votesystem.UserTestData.ADMIN;
-import static votesystem.UserTestData.USER;
 
 public class RootControllerTest extends AbstractControllerTest {
 
@@ -17,8 +16,6 @@ public class RootControllerTest extends AbstractControllerTest {
                 .with(userAuth(ADMIN)))
                 .andDo(print())
                 .andExpect(status().isOk());
-//                .andExpect(view().name("users"))
-//                .andExpect(forwardedUrl("/WEB-INF/jsp/users.jsp"));
     }
 
     @Test
