@@ -1,4 +1,4 @@
-## Implementation of REST API using Maven/Spring/Security/JPA(Hibernate)/REST(Jackson)
+## Implementation of REST API using Maven/Spring/Security/REST(Jackson)
 Stack technology Spring MVC, Spring Data-Jpa, Spring Security, Hibernate, Logback, 
 Json Jackson, Apache Tomcat, Ehcache, JUnit, Hamcrest, slf4j
 
