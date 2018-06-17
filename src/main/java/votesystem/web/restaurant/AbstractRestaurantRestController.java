@@ -9,9 +9,10 @@ import votesystem.model.User;
 import votesystem.service.RestaurantService;
 import votesystem.service.UserService;
 
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Objects;
 
+import static votesystem.VoteAction.*;
 import static votesystem.util.ValidationUtil.assureIdConsistent;
 import static votesystem.util.ValidationUtil.checkNew;
 
@@ -51,22 +52,16 @@ public abstract class AbstractRestaurantRestController {
         service.update(restaurant);
     }
 
-    public void voteForIt(int id) {
+    public void vote(int id) {
         log.info("vote for restaurant with id={}", id);
-        User user = userService.get(AuthorizedUser.id());
-        Restaurant userRestaurant = user.getRestaurant();
-        Integer votedRestaurantId;
-
-        if (userRestaurant != null) { //если он уже голосовал
-            votedRestaurantId = userRestaurant.getId();
-            if (Objects.equals(id, votedRestaurantId)) { //голос за тот же ресторан
-                service.voteForIt(votedRestaurantId, "already_voted");
-            } else { // минус голос за предыдущий ресторан
-                service.voteForIt(votedRestaurantId, "decrement");
-            }
+        User user = userService.get(AuthorizedUser.id()); //получаем юзера
+        Restaurant userRestaurant = user.getRestaurant(); // получаем ресторан у юзера
+        if (user.getVotingDate() == null || user.getVotingDate().isBefore(LocalDate.now())) {
+            service.vote(id, userRestaurant, DID_NOT_VOTE);    // если не голосовал сегодня
+        } else if (user.getVotingDate().isEqual(LocalDate.now())) {
+            service.vote(id, userRestaurant, VOTED);    // если голосовал сегодня
         }
-        // если не голосовал
-        service.voteForIt(id, "increment");
+        user.setVotingDate(LocalDate.now());
         user.setRestaurant(get(id));
         userService.update(user);
     }

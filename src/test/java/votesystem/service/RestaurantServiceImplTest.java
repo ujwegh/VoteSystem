@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
 import votesystem.MealTestData;
 import votesystem.model.Restaurant;
+import votesystem.VoteAction;
 import votesystem.util.exception.NotFoundException;
 import votesystem.util.exception.TooLateForVoteException;
 
@@ -87,15 +88,15 @@ public class RestaurantServiceImplTest extends AbstractServiceTest {
         assertMatch(restaurant, rest1);
     }
 
-    @Test
-    public void voteForIt() throws Exception {
-        Restaurant restaurant = new Restaurant(rest2);
-        restaurant.setVoteCount(1);
-        try {
-            service.voteForIt(RESTAURANT_ID +1, "increment");
-        } catch (TooLateForVoteException e) {
-            restaurant.setVoteCount(0);
-        }
-        assertMatch(service.get(RESTAURANT_ID + 1), restaurant);
-    }
+//    @Test
+//    public void vote() throws Exception {
+//        Restaurant restaurant = new Restaurant(rest2);
+//        restaurant.setVoteCount(1);
+//        try {
+//            service.vote(id, RESTAURANT_ID +1, VoteAction.INCREMENT);
+//        } catch (TooLateForVoteException e) {
+//            restaurant.setVoteCount(0);
+//        }
+//        assertMatch(service.get(RESTAURANT_ID + 1), restaurant);
+//    }
 }

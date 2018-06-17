@@ -10,6 +10,7 @@ import votesystem.model.Role;
 import votesystem.model.User;
 import votesystem.util.exception.NotFoundException;
 
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -35,7 +36,7 @@ public class UserServiceImplTest extends AbstractServiceTest {
     @Test
     public void create() throws Exception {
         User newUser = new User(null, "New", "new@gmail.com", "newPass", false,
-                new Date(), Collections.singleton(Role.ROLE_USER));
+                new Date(), LocalDate.now(), Collections.singleton(Role.ROLE_USER));
         User created = service.create(newUser);
         newUser.setId(created.getId());
         assertMatch(service.getAll(), ADMIN, newUser, USER);

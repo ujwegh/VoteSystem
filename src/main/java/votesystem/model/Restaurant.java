@@ -13,13 +13,13 @@ import java.util.List;
 @Table(name = "restaurants", uniqueConstraints = {@UniqueConstraint(columnNames = "name", name = "restaurants_unique_name_idx")})
 public class Restaurant extends AbstractNamedEntity {
 
-    @Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "restaurant")
     @CollectionTable(name = "meals", joinColumns = @JoinColumn(name = "restaurant_id"))
     @OrderBy("price ASC")
     private List<Meal> meals;
 
-    @Column(name = "voteCount", nullable = false)
+    @Column(name = "vote_count", nullable = false)
     @NotNull
     private int voteCount;
 

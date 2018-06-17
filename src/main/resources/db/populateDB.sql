@@ -14,7 +14,7 @@ INSERT INTO user_roles (role, user_id) VALUES
   ('ROLE_ADMIN', 10001),
   ('ROLE_USER', 10001);
 
-INSERT INTO restaurants (name, voteCount) VALUES
+INSERT INTO restaurants (name, vote_count) VALUES
   ('Шашлычная №1', 0),
   ('Шаурма ВАХ-какой вкусный!', 0);
 

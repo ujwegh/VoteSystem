@@ -23,8 +23,8 @@ public class UserRestaurantRestController extends AbstractRestaurantRestControll
     }
 
     @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void voteForIt(@PathVariable("id") int id) {
-        super.voteForIt(id);
+    public void vote(@PathVariable("id") int id) {
+        super.vote(id);
     }
 
 }

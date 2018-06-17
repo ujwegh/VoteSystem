@@ -2,6 +2,7 @@ package votesystem.service;
 
 
 import votesystem.model.Restaurant;
+import votesystem.VoteAction;
 import votesystem.util.exception.AlreadyVotedException;
 import votesystem.util.exception.NotFoundException;
 import votesystem.util.exception.TooLateForVoteException;
@@ -24,5 +25,5 @@ public interface RestaurantService {
 
   Restaurant getByName(String name) throws NotFoundException;
 
-  void voteForIt(int id, String action) throws NotFoundException, TooLateForVoteException, AlreadyVotedException;
+  void vote(int id, Restaurant userRestaurant, VoteAction action) throws NotFoundException, TooLateForVoteException, AlreadyVotedException;
 }

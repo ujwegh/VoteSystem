@@ -57,7 +57,7 @@ public class UserRestaurantRestControllerTest extends AbstractControllerTest {
     }
 
     @Test
-    public void testVoteForIt() throws Exception {
+    public void testVote() throws Exception {
         Restaurant votedRest = new Restaurant(rest1);
         votedRest.setVoteCount(1);
         if (LocalTime.now().isBefore(LocalTime.of(11,0))) {
