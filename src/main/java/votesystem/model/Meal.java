@@ -29,7 +29,7 @@ public class Meal extends AbstractBaseEntity {
     @NotNull
     private int price;
 
-    @Column(name = "date_time", nullable = false)
+    @Column(name = "date", nullable = false)
     @NotNull
     @DateTimeFormat(pattern = DateTimeUtil.DATE_TIME_PATTERN)
     private LocalDate date;

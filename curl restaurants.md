@@ -63,7 +63,7 @@ curl -X POST \
 	
 #### voteFor restaurant
 curl -X PUT \
-  http://localhost:8080/votesystem/rest/profile/restaurants/10003 \
+  http://localhost:8080/votesystem/rest/restaurants/10003 \
   -H 'Authorization: Basic dXNlckB5YW5kZXgucnU6cGFzc3dvcmQ=' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \

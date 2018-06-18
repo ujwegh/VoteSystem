@@ -18,7 +18,7 @@ INSERT INTO restaurants (name, vote_count) VALUES
   ('Шашлычная №1', 0),
   ('Шаурма ВАХ-какой вкусный!', 0);
 
-INSERT INTO meals (date_time, name, price, restaurant_id) VALUES
+INSERT INTO meals (date, name, price, restaurant_id) VALUES
   (timestamp(now), 'Шаурма в лаваше', 150, 10003),
   (timestamp(now), 'Шаурма в батоне', 160, 10003),
   (timestamp(now), 'Шаурма в пите', 140, 10003),
