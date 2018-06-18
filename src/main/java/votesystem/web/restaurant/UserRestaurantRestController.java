@@ -10,7 +10,7 @@ import java.util.List;
 @RequestMapping(value = UserRestaurantRestController.USER_RESTAURANT_REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class UserRestaurantRestController extends AbstractRestaurantRestController {
 
-    public static final String USER_RESTAURANT_REST_URL = "/rest/profile/restaurants";
+    public static final String USER_RESTAURANT_REST_URL = "/rest/restaurants";
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Restaurant> getAll() {
@@ -26,5 +26,4 @@ public class UserRestaurantRestController extends AbstractRestaurantRestControll
     public void vote(@PathVariable("id") int id) {
         super.vote(id);
     }
-
 }
