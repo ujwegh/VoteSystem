@@ -22,7 +22,7 @@ public class UserTestData {
     public static final User ADMIN = new User(ADMIN_ID, "Admin", "admin@gmail.com", "admin", Role.ROLE_ADMIN, Role.ROLE_USER);
 
     public static void assertMatch(User actual, User expected) {
-        assertThat(actual).isEqualToIgnoringGivenFields(expected, "registered", "restaurant", "password");
+        assertThat(actual).isEqualToIgnoringGivenFields(expected, "registered", "votingDate", "restaurant", "password");
     }
 
     public static void assertMatch(Iterable<User> actual, User... expected) {
@@ -30,16 +30,17 @@ public class UserTestData {
     }
 
     public static void assertMatch(Iterable<User> actual, Iterable<User> expected) {
-        assertThat(actual).usingElementComparatorIgnoringFields("registered", "restaurant", "password").isEqualTo
+        assertThat(actual).usingElementComparatorIgnoringFields("registered","votingDate", "restaurant", "password")
+                .isEqualTo
                 (expected);
     }
 
     public static ResultMatcher contentJson(User... expected) {
-        return content().json(writeIgnoreProps(Arrays.asList(expected), "registered", "password"));
+        return content().json(writeIgnoreProps(Arrays.asList(expected), "registered", "votingDate", "password"));
     }
 
     public static ResultMatcher contentJson(User expected) {
-        return content().json(writeIgnoreProps(expected, "registered", "password"));
+        return content().json(writeIgnoreProps(expected, "registered","votingDate", "password"));
     }
 
     public static String jsonWithPassword(User user, String passw) {
