@@ -18,6 +18,11 @@ public interface CrudRestaurantRepository extends JpaRepository<Restaurant, Inte
     @Override
     List<Restaurant> findAll(Sort sort);
 
+    @EntityGraph(attributePaths = {"meals"}, type = EntityGraph.EntityGraphType.LOAD)
+//    @Query("SELECT u FROM Restaurant u, Meal m JOIN FETCH u.meals WHERE u.id = m.restaurant.id")
+    @Query("SELECT u FROM Restaurant u ORDER BY u.name, u.voteCount ASC")
+    List<Restaurant> getAllWithMeals(Sort sort);
+
     @Override
     @Transactional
     Restaurant save(Restaurant restaurant);

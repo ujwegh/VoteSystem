@@ -4,6 +4,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import votesystem.model.Restaurant;
 
+import java.util.LinkedHashSet;
 import java.util.List;
 
 @RestController
@@ -12,18 +13,29 @@ public class UserRestaurantRestController extends AbstractRestaurantRestControll
 
     public static final String USER_RESTAURANT_REST_URL = "/rest/restaurants";
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/restOnly", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Restaurant> getAll() {
         return super.getAll();
     }
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Restaurant> getAllWithMeals() {
+        return super.getAllWithMeals();
+    }
+
+    @GetMapping(value = "/restOnly/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Restaurant get(@PathVariable("id") int id) {
         return super.get(id);
+    }
+
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Restaurant getWithMeals(@PathVariable("id") int id) {
+        return super.getWithMeals(id);
     }
 
     @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public void vote(@PathVariable("id") int id) {
         super.vote(id);
     }
+
 }

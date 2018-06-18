@@ -7,6 +7,7 @@ import votesystem.util.exception.AlreadyVotedException;
 import votesystem.util.exception.NotFoundException;
 import votesystem.util.exception.TooLateForVoteException;
 
+import java.util.LinkedHashSet;
 import java.util.List;
 
 public interface RestaurantService {
@@ -20,6 +21,8 @@ public interface RestaurantService {
   void delete(int id) throws NotFoundException;
 
   List<Restaurant> getAll();
+
+  List<Restaurant> getAllWithMeals();
 
   Restaurant getWithMeals(int id);
 

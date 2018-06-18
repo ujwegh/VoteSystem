@@ -10,6 +10,7 @@ import votesystem.service.RestaurantService;
 import votesystem.service.UserService;
 
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 import static votesystem.VoteAction.*;
@@ -30,6 +31,11 @@ public abstract class AbstractRestaurantRestController {
         return service.get(id);
     }
 
+    public Restaurant getWithMeals(int id) {
+        log.info("get restaurant with meals with id={}", id);
+        return service.getWithMeals(id);
+    }
+
     public void delete(int id) {
         log.info("delete restaurant with id={}", id);
         service.delete(id);
@@ -38,6 +44,11 @@ public abstract class AbstractRestaurantRestController {
     public List<Restaurant> getAll() {
         log.info("getAll restaurants");
         return service.getAll();
+    }
+
+    public List<Restaurant> getAllWithMeals() {
+        log.info("getAllWithMeals restaurants");
+        return  service.getAllWithMeals();
     }
 
     public Restaurant create(Restaurant restaurant) {

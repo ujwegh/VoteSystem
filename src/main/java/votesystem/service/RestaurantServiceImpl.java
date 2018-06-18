@@ -14,6 +14,7 @@ import votesystem.util.exception.NotFoundException;
 import votesystem.util.exception.TooLateForVoteException;
 
 import java.time.LocalTime;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
 
@@ -55,11 +56,17 @@ public class RestaurantServiceImpl implements RestaurantService {
         checkNotFoundWithId(repository.delete(id), id);
     }
 
-    @Cacheable("restaurants")
     @Override
     public List<Restaurant> getAll() {
         return repository.getAll();
     }
+
+    @Cacheable("restaurants")
+    @Override
+    public List<Restaurant> getAllWithMeals() {
+        return repository.getAllWithMeals();
+    }
+
 
     @Override
     public Restaurant getWithMeals(int id) {
