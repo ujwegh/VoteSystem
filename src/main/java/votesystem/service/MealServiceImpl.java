@@ -29,13 +29,11 @@ public class MealServiceImpl implements MealService {
         return checkNotFoundWithId(repository.get(id, restaurantId), id);
     }
 
-    @CacheEvict(value = "meals", allEntries = true)
     @Override
     public void delete(int id, int restaurantId) throws NotFoundException {
         checkNotFoundWithId(repository.delete(id, restaurantId), id);
     }
 
-    @Cacheable("meals")
     @Override
     public List<Meal> getAll(int restaurantId) {
         return repository.getAll(restaurantId);
@@ -47,7 +45,6 @@ public class MealServiceImpl implements MealService {
         return repository.getAllByDate(restaurantId, chosenDate);
     }
 
-    @CacheEvict(value = "meals", allEntries = true)
     @Override
     public Meal create(Meal meal, int restaurantId) {
         Assert.notNull(meal, "meal must not be null");
