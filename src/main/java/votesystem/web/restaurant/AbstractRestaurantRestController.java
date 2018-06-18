@@ -10,7 +10,6 @@ import votesystem.service.RestaurantService;
 import votesystem.service.UserService;
 
 import java.time.LocalDate;
-import java.util.LinkedHashSet;
 import java.util.List;
 
 import static votesystem.VoteAction.*;

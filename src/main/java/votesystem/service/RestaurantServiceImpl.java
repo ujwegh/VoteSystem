@@ -14,7 +14,6 @@ import votesystem.util.exception.NotFoundException;
 import votesystem.util.exception.TooLateForVoteException;
 
 import java.time.LocalTime;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
 

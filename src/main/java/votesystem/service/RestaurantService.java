@@ -7,7 +7,6 @@ import votesystem.util.exception.AlreadyVotedException;
 import votesystem.util.exception.NotFoundException;
 import votesystem.util.exception.TooLateForVoteException;
 
-import java.util.LinkedHashSet;
 import java.util.List;
 
 public interface RestaurantService {
